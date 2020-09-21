@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+/* import { v4 as uuidv4 } from 'uuid';*/
 export default {
     name: 'AddTodo',
     data() {
@@ -20,7 +20,7 @@ export default {
         addTodo(e) {
             e.preventDefault(); //Because we dont the form to submit to a file
             const newTodo = {
-                id: uuidv4(),
+            /*     id: uuidv4(), Not longer necessary since we fetch the todos with an ID*/
                 title: this.title,
                 completed: false
             }
