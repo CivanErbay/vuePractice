@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Todos/>
+    <Todos v-bind:todos="todos"/> <!-- second "todos" is referring to the todos in the data() -->
   </div>
 </template>
 
