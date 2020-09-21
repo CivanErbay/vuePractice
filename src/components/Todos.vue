@@ -1,14 +1,19 @@
 <template>
     <div>
-        <div v-for="todo in todos" :key="todo.id"> <!-- :key property is necessary to bind iterations -->
-            <h3>{{todo.title}}</h3>
+        <div v-for="todo in todos" v-bind:key="todo.id"> <!-- :key property is necessary to bind iterations -->
+            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
         </div>
     </div>
 </template>
 
 <script>
+import TodoItem from './TodoItem'
+
 export default {
     name: "Todos", //component Name which will be used for Export
+    components: {
+        TodoItem
+    },
     props: ["todos"]
 }
 </script>

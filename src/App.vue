@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Todos v-bind:todos="todos"/> <!-- second "todos" is referring to the todos in the data() -->
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> <!-- second "todos" is referring to the todos in the data() -v-on is waiting for del-todo from children -->
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
        {
          id: 1,
          title: "Todo One",
-         completed: false
+         completed: true
        },{
          id: 2,
          title: "Todo Two",
@@ -33,6 +33,11 @@ export default {
      ]
     };
   },
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id); //gives back all the todos where the id is NOT the one, which is clicked --> returns an array of todos except the clicked one
+    }
+  }
 };
 </script>
 
