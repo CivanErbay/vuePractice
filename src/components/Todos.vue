@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="todo in todos" v-bind:key="todo.id"> <!-- :key property is necessary to bind iterations -->
-            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
+            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" /> <!-- @click="$emit('del-todo', todo.id)" -> This fires 'del-todo' to the parent -->
         </div>
     </div>
 </template>

@@ -4,7 +4,7 @@
     <input type="checkbox" v-on:change="markComplete" />
     <p>
       {{todo.title}}
-      <button @click="$emit('del-todo', todo.id)" class="del">x</button>
+      <button @click="$emit('del-todo', todo.id)" class="del">x</button> <!-- @click="$emit('del-todo', todo.id)" -> This fires 'del-todo' to the parent -->
     </p>
   </div>
 </template>
