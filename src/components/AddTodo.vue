@@ -20,7 +20,7 @@ export default {
         addTodo(e) {
             e.preventDefault(); //Because we dont the form to submit to a file
             const newTodo = {
-            /*     id: uuidv4(), Not longer necessary since we fetch the todos with an ID*/
+                id: Math.floor(Math.random()*1000),
                 title: this.title,
                 completed: false
             }

@@ -34,15 +34,20 @@ export default {
     },
 
     addTodo(newTodo) {
-      const { title, completed } = newTodo;
+      const { id, title, completed } = newTodo;
+  
       axios
         .post("https://jsonplaceholder.typicode.com/todos", {
-          //This Post-Request fires your custom todo.title and completed (false) and give back the same + the ID which jsonplaceholder creates for you
+          //This Post-Request fires your custom todo.title and completed (false) and gives back the same
+          id,
           title,
           completed,
         })
-        .then((res) => this.todos = [...this.todos, res.data]) //equal to this.todos.push(res.data)
+        .then((res) => { 
+           res.data.id = id;
+           this.todos = [...this.todos, res.data]}) //equal to this.todos.push(res.data)
         .catch((err) => console.log(err));
+       
     },
   },
   created() {
